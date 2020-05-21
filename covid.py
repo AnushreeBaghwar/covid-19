@@ -18,7 +18,9 @@ def reslt():
 	table=soup.select_one("#main_table_countries_today")
 	tbody=table.select_one("tbody")
 	tr_list=tbody.select("tr")
-	return render_template('result.html',tr_list)
+	
+
+	return render_template('result.html',l=len(tr_list))
 
 if __name__ == '__main__':
 	app.run()
