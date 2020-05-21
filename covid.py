@@ -8,7 +8,7 @@ def covid():
 
 @app.route('/update')
 def update():
-	return render_template('updatecor')
+	return render_template('updatecor.html')
 
 @app.route('/reslt')
 def reslt():
