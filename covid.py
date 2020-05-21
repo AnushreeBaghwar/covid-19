@@ -12,12 +12,6 @@ def update():
 
 @app.route('/reslt')
 def reslt():
-	url="https://www.worldometers.info/coronavirus/"
-	res=requests.get(url)
-	soup=bs(res.text,"html.parser")
-	table=soup.select_one("#main_table_countries_today")
-	tbody=table.select_one("tbody")
-	tr_list=tbody.select("tr")
 	return render_template('result.html')
 
 if __name__ == '__main__':
