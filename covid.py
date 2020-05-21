@@ -12,7 +12,13 @@ def update():
 
 @app.route('/reslt')
 def reslt():
-	return render_template('result.html')
+	url="https://www.worldometers.info/coronavirus/"
+	res=requests.get(url)
+	soup=bs(res.text,"html.parser")
+	table=soup.select_one("#main_table_countries_today")
+	tbody=table.select_one("tbody")
+	tr_list=tbody.select("tr")
+	return render_template('result.html',tr_list)
 
 if __name__ == '__main__':
 	app.run()
