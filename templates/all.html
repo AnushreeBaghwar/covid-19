@@ -5,7 +5,16 @@
 </head>
 <body>
 	{%for i in range(l)%}
-  {{data[i][1]}}
+  Country name:{{data[i][1]}}<br>
+  Total cases:{{data[i][2]}}<br>
+  new cases:{{data[i][3]}}<br>
+  Total deaths:{{data[i][4]}}<br>
+  new deaths:{{data[i][5]}}<br>
+  total recovered:{{data[i][6]}}<br>
+  Active cases:{{data[i][7]}}<br>
+  Serious,critical:{{data[i][8]}}<br>
+
+
 	{%endfor%}
 
 
