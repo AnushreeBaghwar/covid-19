@@ -26,6 +26,7 @@ def all():
 	t_body = t_body_list[0]
 	tr_list=t_body.select('tr')
 	countries_data=[]
+	flags = []
 	for country in tr_list:
 		c=[]
 		for td in country.select('td'):
@@ -33,12 +34,12 @@ def all():
 		r = requests.get('https://restcountries.eu/rest/v2/name/'+c[1]+'?fullText=true')
 		r_data = r.json()
 		try:
-			c[0] = r_data[0]['flag']
-			print(r_data[0]['flag'])
+			flags.append(r_data[0]['flag'])
 		except Exception:
+			flags.append('none')
 			pass
 		countries_data.append(c)
-	return render_template('all.html',data=countries_data,l=len(countries_data))
+	return render_template('all.html',data=countries_data,l=len(countries_data),flags=flags)
 
 
 
