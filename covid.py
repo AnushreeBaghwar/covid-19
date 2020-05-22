@@ -32,7 +32,7 @@ def all():
 			c.append(td.text)
 		r = requests.get('https://restcountries.eu/rest/v2/name/'+c[1]+'?fullText=true')
 		r_data = r.json()
-		c[0] = r_data[0]['flag']
+		c[0] = r_data['flag']
 		countries_data.append(c)
 	return render_template('all.html',data=countries_data,l=len(countries_data))
 
