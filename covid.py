@@ -39,7 +39,7 @@ def reslt():
 	return render_template('result.html',data=res.json()['cases_time_series'],l=len(res.json()['cases_time_series']))
 
 
-@app.route('')
+@app.route('/')
 def all():
 	url="https://worldometers.info/coronavirus"
 	res=requests.get(url)
