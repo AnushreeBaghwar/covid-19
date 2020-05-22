@@ -1,5 +1,4 @@
 from flask import Flask,render_template
-from bs4 import BeautifulSoup as bs
 import requests
 app=Flask(__name__)
 @app.route('/')
@@ -12,15 +11,13 @@ def update():
 
 @app.route('/reslt')
 def reslt():
-	url="https://www.worldometers.info/coronavirus/"
+	url="https://api.covid19india.org/raw_data2.json"
 	res=requests.get(url)
-	soup=bs(res.text,"html.parser")
-	table=soup.select_one("#main_table_countries_today")
-	tbody=table.select_one("tbody")
-	tr_list=tbody.select("tr")
-	
+	return render_template('result.html',data=res.json()['raw_data'])
 
-	return render_template('result.html',l=len(tr_list))
+
+
+	return render_template('result.html')
 
 if __name__ == '__main__':
 	app.run()
