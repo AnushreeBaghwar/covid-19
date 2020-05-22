@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Live covid-19 Update</title>
 </head>
 <body>
+	<h2>Covid-19 </h2>
+<div class="countries">
 
 	{%for i in range(l)%}
-	<img src="{{flags[i]}}" alt="" width="100px">
-  Country name:{{data[i][1]}}<br>
-  Total cases:{{data[i][2]}}<br>
-  new cases:{{data[i][3]}}<br>
-  Total deaths:{{data[i][4]}}<br>
-  new deaths:{{data[i][5]}}<br>
-  total recovered:{{data[i][6]}}<br>
-  Active cases:{{data[i][7]}}<br>
-  Serious,critical:{{data[i][8]}}<br>
-	<br>
+	<div class="country">
 
-
+	<img src="{{flags[i]}}" alt="{{data[i][1]}}" >
+  <h3>{{data[i][1]}}<br></h3>
+<span class="total pos"> Total cases:{{data[i][2]}} </span> <span class="daily pos">New cases:{{data[i][3]}}</span><br>
+<span class="total died"> Total Deceased :{{data[i][4]}} </span><span class="died">  New deaths:{{data[i][5]}} </span> <br>
+	<span class="rec"> total recovered:{{data[i][6]}} </span> <br>
+  <span class="active">Active cases:{{data[i][7]}}</span> <span class="critical">Serious,critical:{{data[i][8]}}</span><br>
+	</div>
 	{%endfor%}
+
+	</div>
 
 
 </body>
