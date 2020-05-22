@@ -33,7 +33,8 @@ def all():
 		r = requests.get('https://restcountries.eu/rest/v2/name/'+c[1]+'?fullText=true')
 		r_data = r.json()
 		try:
-			c[0] = r_data['flag']
+			c[0] = r_data[0]['flag']
+			print(r_data[0]['flag'])
 		except Exception:
 			pass
 		countries_data.append(c)
