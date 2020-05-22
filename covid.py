@@ -13,11 +13,10 @@ def update():
 def reslt():
 	url="https://api.covid19india.org/raw_data2.json"
 	res=requests.get(url)
-	return render_template('result.html',data=res.json()['raw_data'])
+	return render_template('result.html',data=res.json()['raw_data'],l=len(res.json()['raw_data']))
 
 
 
-	return render_template('result.html')
 
 if __name__ == '__main__':
 	app.run()
