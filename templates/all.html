@@ -4,16 +4,16 @@
 	<title>Live covid-19 Update</title>
 <style>
 	body{
-    background:#0101;
+    background:#fff;
     text-align:center;
 }
 .countries{
     background:beige;
     margin:0;
     height:100%;
-		width:100%;
-		display: flex;
-		flex-wrap: wrap;
+        width:100%;
+        display: flex;
+        flex-wrap: wrap;
 }
 .country{
     background:bisque;
@@ -21,15 +21,38 @@
     padding:20px;
     text-align:center;
     margin:20px;
-   ;
     font-family:inherit;
-		flex:1 0 21%;
+        flex: 21%;
+    box-shadow:5px 8px 10px #dedeac;
+    background-image:url('https://i.ibb.co/v3hDc1N/iconfinder-corona-virus-structure-bacteria-disease-science-5856669.png');
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right -70px; 
+  background-size:200px;
 }
 img{
-    width:250px;
-    border:solid 1px
-    }
-
+    height:130px;
+    border:5px solid #dedede;
+    border-radius:3px;
+ }
+ .total.pos{
+     color:#3575de;
+ }
+ .daily.pos{
+     color:#f00;;
+ }
+.died{
+    color:#acacde;
+}
+.rec{
+    color:#32ae32;
+}
+.active{
+    color:#ac5465;
+}
+.critical{
+    color:#ca0000;
+}
 </style>
 </head>
 <body>
