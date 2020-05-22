@@ -11,9 +11,9 @@ def update():
 
 @app.route('/reslt')
 def reslt():
-	url="https://api.covid19india.org/raw_data2.json"
+	url="https://api.covid19india.org/data.json"
 	res=requests.get(url)
-	return render_template('result.html',data=res.json()['raw_data'],l=len(res.json()['raw_data']))
+	return render_template('result.html',data=res.json()['cases_time_series'],l=len(res.json()['cases_time_series']))
 
 
 

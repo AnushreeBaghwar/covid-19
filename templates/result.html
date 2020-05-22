@@ -4,9 +4,14 @@
 	<title>Results</title>
 </head>
 <body>
-	{%for i in data%}
-	    {{[i]['numcases']}}
-	{%endfor%}
+	Last Update : {{data[-1]['date']}} <br>
+	Total cases : {{data[-1]['totalconfirmed']}} <br>
+	Total recovered : {{data[-1]['totalrecovered']}} <br>
+	Total Deaths : {{data[-1]['totaldeceased']}} <br> <br>	
+
+	New Cases : {{data[-1]['dailyconfirmed']}} <br>
+	New Recovered : {{data[-1]['dailyrecovered']}} <br>
+	New Deaths : {{data[-1]['dailydeceased']}} <br>
 
 <a href="/update">Check corona updates</a></body></br>
 <a href="/reslt">Check updates</a>
