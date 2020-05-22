@@ -1,28 +1,8 @@
 from flask import Flask,render_template
 from bs4 import BeautifulSoup as bs
 import requests
+from flags import flags
 app=Flask(__name__)
-
-url="https://worldometers.info/coronavirus"
-res=requests.get(url)
-soup=bs(res.text)
-t_body_list=soup.select('tbody')
-t_body = t_body_list[0]
-tr_list=t_body.select('tr')
-countries_data=[]
-flags = []
-for country in tr_list:
-    c=[]
-    for td in country.select('td'):
-        c.append(td.text)
-    r = requests.get('https://restcountries.eu/rest/v2/name/'+c[1]+'?fullText=true')
-    r_data = r.json()
-    try:
-        flags.append(r_data[0]['flag'])
-    except Exception:
-        flags.append('none')
-        pass
-    countries_data.append(c)
 
 @app.route('/all')
 def covid():
@@ -43,7 +23,7 @@ def reslt():
 def all():
 	url="https://worldometers.info/coronavirus"
 	res=requests.get(url)
-	soup=bs(res.text)
+	soup=bs(res.text,'html.parser')
 	t_body_list=soup.select('tbody')
 	t_body = t_body_list[0]
 	tr_list=t_body.select('tr')
